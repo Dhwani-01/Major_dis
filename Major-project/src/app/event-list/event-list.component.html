@@ -1,0 +1,8 @@
+<p>event-list works!</p>
+
+<h2>Event List</h2>
+<ul>
+  <li *ngFor="let event of events">
+    {{ event.name }} - {{ event.eventDate | date:'shortDate' }} - {{ event.status }}
+  </li>
+</ul>

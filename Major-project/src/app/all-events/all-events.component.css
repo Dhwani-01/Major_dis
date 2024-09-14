@@ -1,0 +1,86 @@
+/* .custom-tab-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  } */
+
+  .custom-tab-content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 10px;
+  }
+
+  .custom-tab-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .custom-tab-button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-tab-button:hover {
+    background-color: #ddd;
+  }
+  
+  .custom-tab-button:focus {
+    outline: none;
+  }
+  
+  .custom-tab-content {
+    padding: 20px;
+    gap: 10px;
+  }
+  
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    height: 400px;
+  }
+  
+  
+  .event-card-header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+  }
+  
+  .event-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .event-card-body {
+    padding: 15px;
+    background-color: #fff;
+  }
+  
+  .event-card-body h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .event-card-body p {
+    margin: 5px 0;
+    color: #666;
+  }
+  

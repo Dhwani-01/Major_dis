@@ -1,0 +1,14 @@
+.add-button-container {
+    position: fixed; 
+    bottom: 20px;    
+    right: 20px;    
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .add-button {
+    background-color: #007bff; 
+    color: white;
+  }
+  

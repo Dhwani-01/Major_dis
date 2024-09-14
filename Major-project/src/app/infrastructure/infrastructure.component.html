@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button [routerLink]="['/dashboard']">
+      <mat-icon>home</mat-icon>
+    </button>
+    
+    <span class="spacer"></span>
+    
+    <button mat-button [routerLink]="['/services']">
+      <mat-icon>span</mat-icon> Services
+    </button>
+    
+    <button mat-button [routerLink]="['/infrastructure']">
+      <mat-icon>account_balance</mat-icon> Infrastructure
+    </button>
+    
+    <button mat-button [routerLink]="['/leaves']">
+      <mat-icon>event_note</mat-icon> Leaves
+    </button>
+    
+    <button mat-button [routerLink]="['/complaints']">
+      <mat-icon>help</mat-icon> Complaints
+    </button>
+    
+    <button mat-icon-button>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-tab-group (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Laboratory">
+      <!-- Content for Laboratory tab -->
+      <div *ngIf="isLaboratoryTabActive" class="add-button-container">
+        <button mat-fab color="primary" class="add-button">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Classroom">
+      <!-- Content for Classroom tab -->
+    </mat-tab>
+    <mat-tab label="Inventory">
+      <!-- Content for Inventory tab -->
+    </mat-tab>
+  </mat-tab-group>
+  

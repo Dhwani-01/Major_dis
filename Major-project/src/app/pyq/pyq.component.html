@@ -1,0 +1,66 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button [routerLink]="['/dashboard']">
+      <mat-icon>home</mat-icon>
+    </button>
+    
+    <span class="spacer"></span>
+    
+    <button mat-button [routerLink]="['/services']">
+      <mat-icon>span</mat-icon> Services
+    </button>
+    
+    <button mat-button [routerLink]="['/infrastructure']">
+      <mat-icon>account_balance</mat-icon> Infrastructure
+    </button>
+    
+    <button mat-button [routerLink]="['/leaves']">
+      <mat-icon>event_note</mat-icon> Leaves
+    </button>
+    
+    <button mat-button [routerLink]="['/complaints']">
+      <mat-icon>help</mat-icon> Complaints
+    </button>
+    
+    <button mat-icon-button>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+  <button (click)="goToEvent()">Event</button>
+  <h4>4-Year Previous Question Papers</h4>
+  <form [formGroup]="questionPaperForm" (ngSubmit)="onGenerate()">
+    <mat-form-field appearance="fill">
+      <mat-label>Select Year</mat-label>
+      <mat-select formControlName="year">
+        <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Select Semester</mat-label>
+      <mat-select formControlName="semester">
+        <mat-option *ngFor="let semester of semesters" [value]="semester">{{ semester }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Select Course</mat-label>
+      <mat-select formControlName="course">
+        <mat-option *ngFor="let course of courses" [value]="course">{{ course }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Generate</button>
+  </form>
+  <div class="add-button-container">
+    <button class="add-button" >
+      <button mat-icon-button [routerLink]="['/upload_pyq']" >
+      <mat-icon>add</mat-icon>
+      </button>
+    </button>
+  </div>

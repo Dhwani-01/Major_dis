@@ -1,0 +1,61 @@
+
+
+<!-- Display detailed information about the event here -->
+
+<mat-toolbar color="primary">
+    <button mat-icon-button [routerLink]="['/dashboard']">
+      <mat-icon>home</mat-icon>
+    </button>
+    
+    <button mat-button>
+      <mat-icon>span</mat-icon>
+      Services
+    </button>
+    <button mat-button [routerLink]="['/infrastructure']">
+      <mat-icon>account_balance</mat-icon>
+      Infrastructure
+    </button>
+    <button mat-button>
+      <mat-icon>event_note</mat-icon>
+      Leaves
+    </button>
+    <button mat-button>
+      <mat-icon>help</mat-icon>
+      Complaints
+    </button>
+    <button mat-icon-button [routerLink]="['/pyq']">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-image"></div>
+      <mat-card-title>Name</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  
+  <h1>Event Details for {{ eventName }}</h1>
+
+  <div class="event-detail-container">
+    <div class="event-photo">
+      <img [src]="event.photoUrl" alt="Event Photo" />
+    </div>
+  
+    <div class="event-details">
+      <h2>{{ event.name }}</h2>
+      <div class="details-section">
+        <h3>Details</h3>
+        <p><strong>Date:</strong> {{ event.date | date: 'MMMM d, y' }}</p>
+        <p><strong>Time:</strong> {{ event.time | date: 'shortTime' }}</p>
+        <p><strong>Venue:</strong> {{ event.venue }}</p>
+        <p><strong>Description:</strong> {{ event.description }}</p>
+        <p><strong>Faculty Coordinator:</strong> {{ event.coordinator }}</p>
+        <p><strong>Total Registration:</strong> {{ event.registrationCount }}</p>
+      </div>
+  
+      <div class="event-images">
+        <img *ngFor="let image of event.images" [src]="image" alt="Event Image" />
+      </div>
+    </div>
+  </div>

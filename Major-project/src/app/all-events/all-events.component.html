@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button [routerLink]="['/dashboard']">
+      <mat-icon>home</mat-icon>
+    </button>
+    
+    <button mat-button>
+      <mat-icon>span</mat-icon>
+      Services
+    </button>
+    <button mat-button [routerLink]="['/infrastructure']">
+      <mat-icon>account_balance</mat-icon>
+      Infrastructure
+    </button>
+    <button mat-button>
+      <mat-icon>event_note</mat-icon>
+      Leaves
+    </button>
+    <button mat-button>
+      <mat-icon>help</mat-icon>
+      Complaints
+    </button>
+    <button mat-icon-button [routerLink]="['/pyq']">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-image"></div>
+      <mat-card-title>Name</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  
+  <div class="custom-tab-container">
+    <!-- Tabs Navigation -->
+    <div class="custom-tab-nav">
+      <button class="custom-tab-button" (click)="selectTab(0)">Completed</button>
+      <button class="custom-tab-button" (click)="selectTab(1)">Ongoing</button>
+      <button class="custom-tab-button" (click)="selectTab(2)">Upcoming</button>
+    </div>
+    
+    <!-- Tabs Content -->
+    <div class="custom-tab-content" *ngIf="selectedTab === 0">
+      <div class="event-card" *ngFor="let event of completedEvents" >
+        <div class="event-card-header">
+            <img [src]="event.imageUrl" alt="Image" class="event-card-image" />
+          </div>
+        <div class="event-card-body">
+          <h3>{{ event.name }}</h3>
+          <p>{{ event.date | date: 'MMMM d, y' }}</p>
+          <p>{{ event.description }}</p>
+          <button (click)="goToEventDetail(event.name)">Details</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Content for Ongoing -->
+    <div class="custom-tab-content" *ngIf="selectedTab === 1">
+      <!-- Ongoing events content here -->
+    </div>
+  
+    <!-- Content for Upcoming -->
+    <div class="custom-tab-content" *ngIf="selectedTab === 2">
+      <!-- Upcoming events content here -->
+    </div>
+  </div>
+  
