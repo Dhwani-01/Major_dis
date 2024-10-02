@@ -21,6 +21,10 @@ public class Event {
 
     private String status;
     private String role;
+    // private String certificate;
+
+       // Update the certificate field to store the file path
+    @Column(name = "certificate", length = 255)
     private String certificate;
 
     // Getters and Setters
@@ -43,6 +47,9 @@ public class Event {
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
 
+    // public String getCertificate() { return certificate; }
+    // public void setCertificate(String certificate) { this.certificate = certificate; }
+    // Modified getter and setter for the certificate field
     public String getCertificate() { return certificate; }
     public void setCertificate(String certificate) { this.certificate = certificate; }
 }

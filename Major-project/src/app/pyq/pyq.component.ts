@@ -36,7 +36,8 @@ export class PYQComponent {
   
 
   goToEvent(): void {
-    this.router.navigate(['/user_event/status/']); // Replace 'EventName' with the actual event name or a variable.
+   // this.router.navigate(['/user_event/status/']); // Replace 'EventName' with the actual event name or a variable.
+   this.router.navigate(['/event/list/try']);
   }
 }
 
