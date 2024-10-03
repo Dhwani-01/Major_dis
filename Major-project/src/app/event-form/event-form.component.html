@@ -1,0 +1,65 @@
+<p>event-form works!</p>
+
+<div class="event-form">
+    <h2>Create Event</h2>
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+      
+      <div>
+        <label for="name">Event Name:</label>
+        <input id="name" formControlName="name" type="text" placeholder="Enter event name" />
+      </div>
+  
+      <div>
+        <label for="date">Date:</label>
+        <input id="date" formControlName="date" type="date" />
+      </div>
+  
+      <div>
+        <label for="time">Time:</label>
+        <input id="time" formControlName="time" type="time" />
+      </div>
+  
+      <div>
+        <label for="venue">Venue:</label>
+        <input id="venue" formControlName="venue" type="text" placeholder="Enter event venue" />
+      </div>
+  
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" placeholder="Enter event description"></textarea>
+      </div>
+  
+      <div>
+        <label for="facultyCoordinator">Faculty Coordinator:</label>
+        <input id="facultyCoordinator" formControlName="facultyCoordinator" type="text" placeholder="Enter faculty coordinator name" />
+      </div>
+  
+      <div>
+        <label for="totalRegistrations">Total Registrations:</label>
+        <input id="totalRegistrations" formControlName="totalRegistrations" type="number" placeholder="Enter total registrations" />
+      </div>
+  
+      <!-- Logo Upload -->
+      <div>
+        <label for="logo">Event Logo:</label>
+        <input id="logo" type="file" (change)="onLogoChange($event)" accept="image/*" />
+        <div *ngIf="logoPreview">
+          <p>Logo Preview:</p>
+          <img [src]="logoPreview" alt="Logo Preview" width="100" />
+        </div>
+      </div>
+  
+      <!-- Event Images Upload -->
+      <div>
+        <label for="eventImages">Event Images:</label>
+        <input id="eventImages" type="file" (change)="onImageChange($event)" accept="image/*" />
+        <div *ngIf="imagePreview">
+          <p>Image Preview:</p>
+          <img [src]="imagePreview" alt="Image Preview" width="100" />
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="eventForm.invalid">Submit Event</button>
+    </form>
+  </div>
+  
