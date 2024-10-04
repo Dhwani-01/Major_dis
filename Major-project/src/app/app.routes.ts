@@ -9,6 +9,7 @@ import { AllEventsComponent } from './all-events/all-events.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventFormComponent } from './event-form/event-form.component';
+import { EventFetchComponent } from './event-fetch/event-fetch.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'all-events', component: AllEventsComponent } ,
   { path: 'event/:name', component: EventDetailComponent },
   { path: 'event/list/try', component: EventListComponent},
-  { path: 'event/form/admin', component: EventFormComponent}
+  { path: 'event/form/admin', component: EventFormComponent},
+  { path: 'event-fetch', component:EventFetchComponent}
 ];
 
 @NgModule({
