@@ -27,6 +27,11 @@ const routes: Routes = [
    
   },
   {
+    path: 'student',
+    loadChildren: () => import('./student/student.module').then((m) => m.StudentModule),
+   
+  },
+  {
     path: 'sign-up',
     component: SignupComponent,
     // canActivate: [NoGuardGuard],
