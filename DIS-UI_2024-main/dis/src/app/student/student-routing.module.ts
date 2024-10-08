@@ -1,48 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-import { StudentComponent } from './student.component';
-// import { AdministrationComponent } from './components/administration/administration.component';
-import { DashboardComponent } from '../head/components/dashboard/dashboard.component';
-// import { ExpertLectureComponent } from './components/administration/expert-lecture/expert-lecture.component';
-
-// import { MeetingsComponent } from './components/meetings/meetings.component';
-// import { ExpertLecturePendingComponent } from './components/administration/expert-lecture/expert-lecture-pending/expert-lecture-pending.component';
-// import { ExpertLectureUpcomingComponent } from './components/administration/expert-lecture/expert-lecture-upcoming/expert-lecture-upcoming.component';
-// import { ExpertLectureCompletedComponent } from './components/administration/expert-lecture/expert-lecture-completed/expert-lecture-completed.component';
-// import { TasksComponent } from './components/tasks/tasks.component';
-import { AboutComponent } from '../components/about/about.component';
-import { OverviewComponent } from '../components/about/overview/overview.component';
-import { ContactComponent } from '../components/about/contact/contact.component';
-import { ProfileComponent } from '../components/profile/profile.component';
-// import { FacultyPageComponent } from './components/faculty-page/faculty-page.component';
-// import { FacultiesComponent } from './components/faculties/faculties.component';
-// import { StaffComponent } from './components/staff/staff.component';
-// import { InfrastructureComponent } from './components/infrastructure/infrastructure.component';
-// import { IndustryVisitComponent } from './components/administration/industry-visit/industry-visit.component';
-// import { AdminComponent } from '../components/admin/admin.component';
-// import { IndustryVisitPendingComponent } from './components/administration/industry-visit/industry-visit-pending/industry-visit-pending.component';
-// import { IndustryVisitUpcomingComponent } from './components/administration/industry-visit/industry-visit-upcoming/industry-visit-upcoming.component';
-// import { IndustryVisitCompletedComponent } from './components/administration/industry-visit/industry-visit-completed/industry-visit-completed.component';
-// import { FacultiesComponent } from './components/faculty-page/faculties/faculties.component';
-// import { StaffComponent } from './components/faculty-page/staff/staff.component';
-
-// import { EventCompletedComponent } from './components/administration/event/event-completed/event-completed.component';
-// import { EventComponent } from './components/administration/event/event.component';
-// import { EventOngoingComponent } from './components/administration/event/event-ongoing/event-ongoing.component';
-// import { EventUpcomingComponent } from './components/administration/event/event-upcoming/event-upcoming.component';
-
-
-const routes: Routes = [
-  {
-    path: '',
-    component: StudentComponent,
-    children: [
-      {
-        path: '',
-        component: DashboardComponent,
-      },
-      // {
+// {
       //   path: 'admin',
       //   component: AdministrationComponent,
       //   children: [
@@ -162,6 +118,54 @@ const routes: Routes = [
       //   path: 'tasks',
       //   component: TasksComponent,
       // },
+
+
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { StudentComponent } from './student.component';
+// import { AdministrationComponent } from './components/administration/administration.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+// import { ExpertLectureComponent } from './components/administration/expert-lecture/expert-lecture.component';
+
+// import { MeetingsComponent } from './components/meetings/meetings.component';
+// import { ExpertLecturePendingComponent } from './components/administration/expert-lecture/expert-lecture-pending/expert-lecture-pending.component';
+// import { ExpertLectureUpcomingComponent } from './components/administration/expert-lecture/expert-lecture-upcoming/expert-lecture-upcoming.component';
+// import { ExpertLectureCompletedComponent } from './components/administration/expert-lecture/expert-lecture-completed/expert-lecture-completed.component';
+// import { TasksComponent } from './components/tasks/tasks.component';
+import { AboutComponent } from '../components/about/about.component';
+import { OverviewComponent } from '../components/about/overview/overview.component';
+import { ContactComponent } from '../components/about/contact/contact.component';
+import { ProfileComponent } from '../components/profile/profile.component';
+import { EventFetchComponent } from './event/event-fetch/event-fetch.component';
+// import { FacultyPageComponent } from './components/faculty-page/faculty-page.component';
+// import { FacultiesComponent } from './components/faculties/faculties.component';
+// import { StaffComponent } from './components/staff/staff.component';
+// import { InfrastructureComponent } from './components/infrastructure/infrastructure.component';
+// import { IndustryVisitComponent } from './components/administration/industry-visit/industry-visit.component';
+// import { AdminComponent } from '../components/admin/admin.component';
+// import { IndustryVisitPendingComponent } from './components/administration/industry-visit/industry-visit-pending/industry-visit-pending.component';
+// import { IndustryVisitUpcomingComponent } from './components/administration/industry-visit/industry-visit-upcoming/industry-visit-upcoming.component';
+// import { IndustryVisitCompletedComponent } from './components/administration/industry-visit/industry-visit-completed/industry-visit-completed.component';
+// import { FacultiesComponent } from './components/faculty-page/faculties/faculties.component';
+// import { StaffComponent } from './components/faculty-page/staff/staff.component';
+
+// import { EventCompletedComponent } from './components/administration/event/event-completed/event-completed.component';
+// import { EventComponent } from './components/administration/event/event.component';
+// import { EventOngoingComponent } from './components/administration/event/event-ongoing/event-ongoing.component';
+// import { EventUpcomingComponent } from './components/administration/event/event-upcoming/event-upcoming.component';
+
+
+const routes: Routes = [
+  {
+    path: '',
+    component: StudentComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+      },
       {
         path: 'profile',
         component: ProfileComponent,
@@ -189,6 +193,10 @@ const routes: Routes = [
         path: 'contact',
         component: ContactComponent,
       },
+      {
+        path: 'event-fetch',
+        component: EventFetchComponent,
+      }
     ]
   },
   {

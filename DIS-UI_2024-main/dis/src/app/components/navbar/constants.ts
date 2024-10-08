@@ -116,34 +116,34 @@ export const headerList: HeaderList = {
   student: [
     {
       icon: 'bi-list',
-      text: 'Administration',
+      text: 'Services',
       route: 'admin',
     },
-    {
-      icon: 'bi-globe-central-south-asia',
-      text: 'About',
-      route: 'about',
-    },
-    {
-      icon: 'bi-list-task',
-      text: 'Tasks',
-      route: 'tasks',
-    },
-    {
-      icon: 'bi-person-workspace',
-      text: 'Faculty',
-      route: 'faculty',
-    },
+    // {
+    //   icon: 'bi-globe-central-south-asia',
+    //   text: 'About',
+    //   route: 'about',
+    // },
+    // {
+    //   icon: 'bi-list-task',
+    //   text: 'Tasks',
+    //   route: 'tasks',
+    // },
+    // {
+    //   icon: 'bi-person-workspace',
+    //   text: 'Faculty',
+    //   route: 'faculty',
+    // },
     // {
     //   icon: 'bi-mortarboard-fill',
     //   text: 'PHD',
     //   route: 'phd',
     // },
-    {
-      icon: 'bi-bank',
-      text: 'Infrastructure',
-      route: 'infrastructure',
-    },
+    // {
+    //   icon: 'bi-bank',
+    //   text: 'Infrastructure',
+    //   route: 'infrastructure',
+    // },
     {
       icon: 'header-icon-moodle icon-3x-4x text-white',
       text: 'Moodle',
