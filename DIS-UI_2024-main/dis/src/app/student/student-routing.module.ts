@@ -140,6 +140,7 @@ import { ContactComponent } from '../components/about/contact/contact.component'
 import { ProfileComponent } from '../components/profile/profile.component';
 import { EventFetchComponent } from './event/event-fetch/event-fetch.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventListComponent } from './event/event-list/event-list.component';
 // import { FacultyPageComponent } from './components/faculty-page/faculty-page.component';
 // import { FacultiesComponent } from './components/faculties/faculties.component';
 // import { StaffComponent } from './components/staff/staff.component';
@@ -197,6 +198,10 @@ const routes: Routes = [
       {
         path: 'event-fetch',
         component: EventFetchComponent,
+      },
+      {
+        path: 'event-list',
+        component: EventListComponent,
       },
       {
         path: 'event-detail',

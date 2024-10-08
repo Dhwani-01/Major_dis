@@ -152,6 +152,13 @@ export class EventFetchComponent implements OnInit {
     this.router.navigate(['student/event-detail', { name: eventName }]); // Assuming 'name' is a parameter in the route
   }
   // Method to navigate to event details page (for demonstration purposes)
+  viewYourEvents(): void {
+    console.log('View All Events button clicked!');
+    // Implement the logic to show all events, possibly by navigating to another page or loading more events
+    // For example, you might use a router to navigate to an events page:
+    // this.router.navigate(['/events']);
+    this.router.navigate(['/student/event-list']);
+  }
   
 }
 

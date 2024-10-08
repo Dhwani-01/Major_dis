@@ -13,6 +13,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventListComponent } from './event/event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
     StudentComponent,
     DashboardComponent,
     EventFetchComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    EventListComponent
 
   ],
   imports: [
