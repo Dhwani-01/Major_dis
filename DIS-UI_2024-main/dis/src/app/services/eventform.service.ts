@@ -29,4 +29,15 @@ export class EventformService {
   getEventDetails(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  // getEventByName(eventName: string): Observable<any> {
+  //   return this.http.get(`${this.baseUrl}/events?name=${eventName}`); // Adjust the endpoint based on your API
+  // }
+
+  getEventByName(eventName: string): Observable<any> {
+    const encodedName = encodeURIComponent(eventName); // Encode the event name
+    return this.http.get(`${this.baseUrl}/events?name=${encodedName}`);
+  }
+
+  
 }

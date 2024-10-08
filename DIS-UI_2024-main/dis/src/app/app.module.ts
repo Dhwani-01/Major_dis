@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NoGuardGuard } from './shared/guard/noguard.guard';
 import { HeadGuard } from './shared/guard/head.guard';
+import { StudentGuard } from './shared/guard/student.guard';
 import { FacultyGuard } from './shared/guard/faculty.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -71,6 +72,7 @@ import { UploadCsvDialogComponent } from './components/admin/upload-csv-dialog/u
   
   providers: [NoGuardGuard,
     HeadGuard,
+    StudentGuard,
     FacultyGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

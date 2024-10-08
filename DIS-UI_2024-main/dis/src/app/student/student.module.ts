@@ -12,6 +12,7 @@ import { EventFetchComponent } from './event/event-fetch/event-fetch.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     EventFormComponent,
     StudentComponent,
     DashboardComponent,
-    EventFetchComponent
+    EventFetchComponent,
+    EventDetailComponent
 
   ],
   imports: [
