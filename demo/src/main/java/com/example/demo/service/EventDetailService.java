@@ -20,7 +20,11 @@ public class EventDetailService {
                                        MultipartFile logo, MultipartFile eventImages) throws IOException {
         EventDetail eventDetail = new EventDetail();
         eventDetail.setName(name);
-        eventDetail.setDate(new java.sql.Date(System.currentTimeMillis())); // Handle date parsing as needed
+
+        java.sql.Date sqlDate = java.sql.Date.valueOf(date); // Assuming the date is in 'yyyy-MM-dd' format
+        eventDetail.setDate(sqlDate);
+
+      //  eventDetail.setDate(new java.sql.Date(System.currentTimeMillis())); // Handle date parsing as needed
         eventDetail.setTime(time);
         eventDetail.setVenue(venue);
         eventDetail.setDescription(description);
@@ -38,5 +42,9 @@ public class EventDetailService {
 
     public EventDetail getEventById(Long id) {
         return eventDetailRepository.findById(id).orElse(null);
+    }
+
+    public EventDetail getEventByName(String name) {
+        return eventDetailRepository.findByName(name); // Assuming you have a method in your repository
     }
 }

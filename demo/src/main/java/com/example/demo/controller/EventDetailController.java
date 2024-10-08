@@ -54,4 +54,25 @@ public class EventDetailController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    // @GetMapping
+    // public ResponseEntity<EventDetail> getEventByName(@RequestParam("name") String name) {
+    //     System.out.println("EVENT NAME"+name);
+    //     EventDetail event = eventDetailService.getEventByName(name);
+    //     if (event != null) {
+    //         return ResponseEntity.ok(event);
+    //     } else {
+    //         return ResponseEntity.notFound().build(); // Change to notFound() if the event isn't found
+    //     }
+    // }
+    @GetMapping("/events") // Unique path for getting event by name
+    public ResponseEntity<EventDetail> getEventByName(@RequestParam("name") String name) {
+        System.out.println("EVENT NAME: " + name);
+        EventDetail event = eventDetailService.getEventByName(name);
+        if (event != null) {
+            return ResponseEntity.ok(event);
+        } else {
+            return ResponseEntity.notFound().build(); // Change to notFound() if the event isn't found
+        }
+    }
 }

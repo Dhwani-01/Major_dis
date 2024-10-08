@@ -13,4 +13,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EventDetailRepository extends JpaRepository<EventDetail, Long> {
+
+    EventDetail findByName(String name);
+    
 }
