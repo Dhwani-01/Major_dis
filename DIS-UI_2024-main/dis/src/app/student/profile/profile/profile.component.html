@@ -1,0 +1,70 @@
+
+<mat-tab-group>
+    <mat-tab label="Basics">
+      <div class="profile-section">
+        <div class="left-content">
+          <p><strong>Name:</strong> {{ student?.name }}</p>
+          <p><strong>Branch:</strong> {{ student?.branch }}</p>
+          <p><strong>Enrollment:</strong> {{ student?.enrollment }}</p>
+          <p><strong>Year:</strong> {{ student?.yearOfAdmission }}</p>
+          <p><strong>Mobile No.:</strong> {{ student?.mobileNo }}</p>
+        </div>
+  
+        <div class="right-content">
+          <div class="profile-picture-frame">
+            <img [src]="student?.profilePicture" alt="Profile Picture" class="profile-picture">
+            <button mat-raised-button color="primary" (click)="changeProfilePicture()">Change Photo</button>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="Academics">
+      <div class="profile-section">
+        <div class="left-content">
+          <p><strong>Semesters:</strong></p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Select Semester</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let semester of [1,2,3,4,5,6,7,8]" [value]="semester">
+                Semester {{semester}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <p><strong>Marksheet:</strong></p>
+          <div class="marksheets-section">
+            <button mat-raised-button color="primary">Upload Marksheet</button>
+          </div>
+  
+          <p><strong>Academic Projects (upload links):</strong></p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Upload Project Link</mat-label>
+            <input matInput placeholder="Project Link">
+          </mat-form-field>
+  
+          <p><strong>Faculty Name:</strong></p>
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput placeholder="Enter Faculty Name">
+          </mat-form-field>
+  
+          <p><strong>Description:</strong></p>
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Add project description here" class="project-description"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="Performance">
+      <p>Performance content goes here...</p>
+    </mat-tab>
+  </mat-tab-group>
+  
+  <div class="action-buttons">
+    <button mat-raised-button color="primary" class="bottom-button">Edit</button>
+    <button mat-raised-button color="accent" class="bottom-button" [routerLink]="['student/add-detail']">
+      Add Details
+    </button>
+  </div>
+  
