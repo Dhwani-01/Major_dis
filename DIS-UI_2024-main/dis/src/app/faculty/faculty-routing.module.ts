@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FacultyComponent } from './faculty.component';
-import { DashboardComponent } from '../head/components/dashboard/dashboard.component';
+// import { DashboardComponent } from '../head/components/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from '../components/profile/profile.component';
 import { AboutComponent } from '../components/about/about.component';
 import { OverviewComponent } from '../components/about/overview/overview.component';
@@ -18,6 +19,12 @@ import { IndustryVisitUpcomingComponent } from './components/administration/indu
 import { IndustryVisitCompletedComponent } from './components/administration/industry-visit/industry-visit-completed/industry-visit-completed.component';
 
 import { EventComponent } from './components/administration/event/event.component';
+import { EventCompletedComponent } from './components/administration/event/event-completed/event-completed.component';
+import { EventUpcomingComponent } from './components/administration/event/event-upcoming/event-upcoming.component';
+import { EventOngoingComponent } from './components/administration/event/event-ongoing/event-ongoing.component';
+import { EventFetchComponent } from './components/administration/event/event-fetch/event-fetch.component';
+import { EventDetailComponent } from './components/administration/event/event-detail/event-detail.component';
+import { UploadsPyqComponent } from './components/service/uploads-pyq/uploads-pyq.component';
 
 const routes: Routes = [
   {
@@ -27,6 +34,18 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardComponent,
+      },
+      {
+        path: 'uploads-pyq',
+        component: UploadsPyqComponent,
+      },
+      {
+        path: 'event-fetch',
+        component: EventFetchComponent,
+      },
+      {
+        path: 'event-detail',
+        component: EventDetailComponent,
       },
       {
         path: 'profile',
@@ -94,6 +113,29 @@ const routes: Routes = [
             ],
           },
           {
+            path: 'event',
+            component: EventComponent,
+            children: [
+              {
+                path: '',
+                redirectTo: 'event-completed',
+                pathMatch: 'full',
+              },
+              {
+                path: 'event-completed',
+                component: EventCompletedComponent,
+              },
+              {
+                path: 'event-upcoming',
+                component: EventUpcomingComponent,
+              },
+              {
+                path: 'event-ongoing',
+                component: EventOngoingComponent,
+              },
+            ],
+          },
+          {
             path: 'industryVisit',
             component: IndustryVisitComponent,
             children: [
@@ -116,29 +158,29 @@ const routes: Routes = [
               }
             ]
           },
-          {
-            path: 'event',
-            component: EventComponent,
-            children: [
-              {
-                path: '',
-                redirectTo: 'event-pending',
-                pathMatch: 'full',
-              },
-              {
-                path: 'event-pending',
-                component: ExpertLecturePendingComponent,
-              },
-              {
-                path: 'event-upcoming',
-                component: ExpertLectureUpcomingComponent,
-              },
-              {
-                path: 'event-completed',
-                component: ExpertLectureCompletedComponent,
-              },
-            ],
-          },
+          // {
+          //   path: 'event',
+          //   component: EventComponent,
+          //   children: [
+          //     {
+          //       path: '',
+          //       redirectTo: 'event-pending',
+          //       pathMatch: 'full',
+          //     },
+          //     {
+          //       path: 'event-pending',
+          //       component: ExpertLecturePendingComponent,
+          //     },
+          //     {
+          //       path: 'event-upcoming',
+          //       component: ExpertLectureUpcomingComponent,
+          //     },
+          //     {
+          //       path: 'event-completed',
+          //       component: ExpertLectureCompletedComponent,
+          //     },
+          //   ],
+          // },
           
         ]
       }

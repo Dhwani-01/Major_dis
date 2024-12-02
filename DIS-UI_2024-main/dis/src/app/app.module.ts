@@ -34,9 +34,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UploadCsvDialogComponent } from './components/admin/upload-csv-dialog/upload-csv-dialog.component';
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -27,9 +27,18 @@ import { IndustryVisitPendingComponent } from './components/administration/indus
 import { IndustryDialogComponent } from './components/administration/industry-visit/industry-dialog/industry-dialog.component';
 import { IndustryVisitUpcomingComponent } from './components/administration/industry-visit/industry-visit-upcoming/industry-visit-upcoming.component';
 import { IndustryVisitCompletedComponent } from './components/administration/industry-visit/industry-visit-completed/industry-visit-completed.component';
+
 import { EventComponent } from './components/administration/event/event.component';
+import { EventDialogComponent } from './components/administration/event/event-dialog/event-dialog.component';
+import { EventCompletedComponent } from './components/administration/event/event-completed/event-completed.component';
+import { EventOngoingComponent } from './components/administration/event/event-ongoing/event-ongoing.component';
+import { EventUpcomingComponent } from './components/administration/event/event-upcoming/event-upcoming.component';
+import { EventFetchComponent } from './components/administration/event/event-fetch/event-fetch.component';
+import { EventDetailComponent } from './components/administration/event/event-detail/event-detail.component';
+import { UploadsPyqComponent } from './components/service/uploads-pyq/uploads-pyq.component';
 
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +60,15 @@ import { EventComponent } from './components/administration/event/event.componen
     IndustryVisitUpcomingComponent,
     IndustryVisitCompletedComponent,
     EventComponent,
-    
-    
+    EventDialogComponent,
+    EventCompletedComponent,
+    EventOngoingComponent,
+    EventUpcomingComponent,
+    EventFetchComponent,
+    DashboardComponent,
+    EventDetailComponent,
+    UploadsPyqComponent
+ 
     // 
   ],
   imports: [
@@ -64,7 +80,9 @@ import { EventComponent } from './components/administration/event/event.componen
     ReactiveFormsModule,
     AgGridModule,
     FlexLayoutModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatTabsModule
+
   ],
  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

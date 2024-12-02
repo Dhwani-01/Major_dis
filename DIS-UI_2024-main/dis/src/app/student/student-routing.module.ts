@@ -137,10 +137,22 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutComponent } from '../components/about/about.component';
 import { OverviewComponent } from '../components/about/overview/overview.component';
 import { ContactComponent } from '../components/about/contact/contact.component';
-import { ProfileComponent } from '../components/profile/profile.component';
+//  import { ProfileComponent } from '../components/profile/profile.component';
+// import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile/profile/profile.component';
 import { EventFetchComponent } from './event/event-fetch/event-fetch.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { EventListComponent } from './event/event-list/event-list.component';
+// import { PyqComponent } from './dis-pyq/pyq/pyq.component';
+// import { UploadPyqComponent } from './dis-pyq/upload-pyq/upload-pyq.component';
+import { AddDetailComponent } from './profile/add-detail/add-detail.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { PYQComponent } from './dis-pyq/pyq/pyq.component';
+import { AddCompanyFormComponent } from './placement/addCompanyForm/addCompanyForm.component';
+import { AddQuestionComponent } from './placement/addQuestion/addQuestion.component';
+import { QuestionListComponent } from './placement/question-list/question-list.component';
+import { TopicListComponent } from './placement/topic-list/topic-list.component';
+import { CardPageComponent } from './placement/card-page/card-page.component';
 // import { FacultyPageComponent } from './components/faculty-page/faculty-page.component';
 // import { FacultiesComponent } from './components/faculties/faculties.component';
 // import { StaffComponent } from './components/staff/staff.component';
@@ -168,10 +180,20 @@ const routes: Routes = [
         path: '',
         component: DashboardComponent,
       },
+      // {
+      //   path: 'profile',
+      //   component: ProfileComponent,
+      // },
       {
         path: 'profile',
         component: ProfileComponent,
+        children: [
+          { path: 'add-detail', component: AddDetailComponent },
+         
+        ],
+
       },
+      { path: 'edit-profile', component: EditProfileComponent },
       {
         path: 'about',
         component: AboutComponent,
@@ -206,7 +228,32 @@ const routes: Routes = [
       {
         path: 'event-detail',
         component: EventDetailComponent,
-      }
+      },
+      { path: 'topic-list/:companyId/:value', component: TopicListComponent },
+      { path: 'question-list/:topicId/:value', component: QuestionListComponent },
+      { path: 'addCompanyForm', component: AddCompanyFormComponent },
+      { path: 'addQuestion/:value/:category/:companyId', component: AddQuestionComponent },
+      { path: 'PlacementTopic-list/:companyId', component: TopicListComponent },
+      { path: 'PlacementQuestion-list/:topicId', component: QuestionListComponent },
+      { path: 'addPlacementQuestion', component: AddQuestionComponent },
+      {
+        path: 'placement',
+        component: CardPageComponent,
+      },
+      {
+        path: 'pyq',
+        component: PYQComponent,
+      },
+      // {
+      //   path: 'pyq',
+      //   component: PyqComponent,
+      //   children: [
+      //     {
+      //       path: 'upload-pyq', 
+      //       component: UploadPyqComponent,
+      //     },
+      //   ],
+      // },
     ]
   },
   {

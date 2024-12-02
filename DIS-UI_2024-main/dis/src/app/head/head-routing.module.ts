@@ -126,6 +126,10 @@ const routes: Routes = [
             path: 'systemAdmin',
             component: AdminComponent,
           },
+          {
+            path: 'infrastructure',
+            component: InfrastructureComponent,
+          },
         ]
       },
       {

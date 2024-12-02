@@ -55,6 +55,22 @@ export const headerList: HeaderList = {
       text: 'Profile',
       route: 'profile',
     },
+    {
+      icon: 'bi-list',
+      text: 'Service',
+      route: null,
+       children: {
+            text: 'Services',
+            children: [
+              {
+                icon: null,
+                text: 'Upload PYQ',
+                route: 'uploads-pyq',
+              },
+
+            ],
+          },
+    },
   ],
   head: [
     {
@@ -117,8 +133,29 @@ export const headerList: HeaderList = {
     {
       icon: 'bi-list',
       text: 'Services',
-      route: 'admin',
+      route: null,
+      children: {
+       text: 'Services',
+            children: [
+
+              {
+                icon: null,
+                text: 'PYQ',
+                route: 'pyq',
+              },
+              {
+                icon: null,
+                text: 'Placement',
+                route: 'placement',
+              },
+            ],
+            },
     },
+    // {
+    //   icon: 'bi-list',
+    //   text: 'Services',
+    //   route: 'admin',
+    // },
     // {
     //   icon: 'bi-globe-central-south-asia',
     //   text: 'About',
