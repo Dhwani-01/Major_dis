@@ -39,6 +39,9 @@ import { UploadsPyqComponent } from './components/service/uploads-pyq/uploads-py
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { StudentLeaveAplcationComponentComponent } from './components/administration/student-leave-application-component/student-leave-application-component.component';
+import { StudentLeaveDetailComponent } from './components/administration/student-leave-detail/student-leave-detail.component';
 
 @NgModule({
   declarations: [
@@ -67,8 +70,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     EventFetchComponent,
     DashboardComponent,
     EventDetailComponent,
-    UploadsPyqComponent
- 
+    UploadsPyqComponent,
+    StudentLeaveAplcationComponentComponent,
+    StudentLeaveDetailComponent
     // 
   ],
   imports: [
@@ -81,9 +85,26 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AgGridModule,
     FlexLayoutModule,
     FullCalendarModule,
-    MatTabsModule
-
+    MatTabsModule,
+    FacultyRoutingModule,
+    MaterialModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AgGridModule,
+    FlexLayoutModule,
+    FullCalendarModule
   ],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    {
+      provide: MAT_DIALOG_DATA,
+      useValue: {}
+    },
+ ],
  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FacultyModule { }

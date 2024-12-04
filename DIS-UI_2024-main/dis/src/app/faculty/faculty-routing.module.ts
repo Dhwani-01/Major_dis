@@ -25,6 +25,7 @@ import { EventOngoingComponent } from './components/administration/event/event-o
 import { EventFetchComponent } from './components/administration/event/event-fetch/event-fetch.component';
 import { EventDetailComponent } from './components/administration/event/event-detail/event-detail.component';
 import { UploadsPyqComponent } from './components/service/uploads-pyq/uploads-pyq.component';
+import { StudentLeaveAplcationComponentComponent } from './components/administration/student-leave-application-component/student-leave-application-component.component';
 
 const routes: Routes = [
   {
@@ -111,6 +112,10 @@ const routes: Routes = [
                 component: ExpertLectureCompletedComponent,
               },
             ],
+          },
+          {
+            path: 'leaves',
+            component: StudentLeaveAplcationComponentComponent,
           },
           {
             path: 'event',

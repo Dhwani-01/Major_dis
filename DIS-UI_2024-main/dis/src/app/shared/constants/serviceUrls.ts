@@ -121,6 +121,11 @@ export const serviceUrls: any = {
     getAllGrades : urls.moodle + '/moodle/getUserGradeReport',
     getAssignmentDetails : urls.moodle + '/moodle/getAssignmentDetails',
     getAllEnrolledCourses: urls.moodle + '/moodle/getAllEnrolledCourses',
-
-
+    //Student Service URLS
+    addLeave: urls.administration+'/home/addLeave',
+    getLeaveByStudentId:urls.administration+'/home/getLeaveByStudentId',
+    deleteLeaveByLeaveId:urls.administration+'/home/deleteLeaveByLeaveId',
+    getLeaveByAssignedID:urls.administration+'/home/getLeaveByAssignedToId',
+    putLeaveStatusByLeaveId:urls.administration+'/home/putLeaveStatusByLeaveId',
+    addLeaveSupportingDocument:urls.administration+'/home/postLeaveSupportingDocumentById'
   };

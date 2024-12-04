@@ -139,20 +139,21 @@ import { OverviewComponent } from '../components/about/overview/overview.compone
 import { ContactComponent } from '../components/about/contact/contact.component';
 //  import { ProfileComponent } from '../components/profile/profile.component';
 // import { ProfileComponent } from './profile/profile.component';
-import { ProfileComponent } from './profile/profile/profile.component';
-import { EventFetchComponent } from './event/event-fetch/event-fetch.component';
-import { EventDetailComponent } from './event/event-detail/event-detail.component';
-import { EventListComponent } from './event/event-list/event-list.component';
+import { ProfileComponent } from './components/profile/profile/profile.component';
+import { EventFetchComponent } from './components/event/event-fetch/event-fetch.component';
+import { EventDetailComponent } from './components/event/event-detail/event-detail.component';
+import { EventListComponent } from './components/event/event-list/event-list.component';
 // import { PyqComponent } from './dis-pyq/pyq/pyq.component';
 // import { UploadPyqComponent } from './dis-pyq/upload-pyq/upload-pyq.component';
-import { AddDetailComponent } from './profile/add-detail/add-detail.component';
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
-import { PYQComponent } from './dis-pyq/pyq/pyq.component';
-import { AddCompanyFormComponent } from './placement/addCompanyForm/addCompanyForm.component';
-import { AddQuestionComponent } from './placement/addQuestion/addQuestion.component';
-import { QuestionListComponent } from './placement/question-list/question-list.component';
-import { TopicListComponent } from './placement/topic-list/topic-list.component';
-import { CardPageComponent } from './placement/card-page/card-page.component';
+import { AddDetailComponent } from './components/profile/add-detail/add-detail.component';
+import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
+import { PYQComponent } from './components/dis-pyq/pyq/pyq.component';
+import { AddCompanyFormComponent } from './components/placement/addCompanyForm/addCompanyForm.component';
+import { AddQuestionComponent } from './components/placement/addQuestion/addQuestion.component';
+import { QuestionListComponent } from './components/placement/question-list/question-list.component';
+import { TopicListComponent } from './components/placement/topic-list/topic-list.component';
+import { CardPageComponent } from './components/placement/card-page/card-page.component';
+import { LeaveComponent } from './components/leave/leave.component';
 // import { FacultyPageComponent } from './components/faculty-page/faculty-page.component';
 // import { FacultiesComponent } from './components/faculties/faculties.component';
 // import { StaffComponent } from './components/staff/staff.component';
@@ -194,6 +195,7 @@ const routes: Routes = [
 
       },
       { path: 'edit-profile', component: EditProfileComponent },
+      { path: 'leaves', component:LeaveComponent},
       {
         path: 'about',
         component: AboutComponent,
