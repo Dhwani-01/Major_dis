@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { values } from 'lodash';
 
 @Component({
   selector: 'app-administration',
@@ -18,7 +19,8 @@ export class AdministrationComponent {
     { code: 'MEScholarship', value: 'ME Scholarship' },
     { code: 'courseScheme', value: 'Course Scheme' },
     { code: 'systemAdmin', value: 'System Admin' },
-    { code: 'uploadtimetable', value: 'Upload Timetable' },
+    { code: 'uploadtimetable', value: 'Upload Timetable' }, 
+    { code: 'leaves', value: 'Student Leave'}
     // { code: 'uploadevent', value: 'Upload Event' },
   ];
 }
