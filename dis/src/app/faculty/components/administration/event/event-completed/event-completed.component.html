@@ -1,0 +1,67 @@
+<!-- <p>event-completed works!</p> -->
+<!-- <p>event-completed works!</p>
+
+<div class="event-card" *ngFor="let event of completedEvents" >
+    <div class="event-card-header">
+      <img *ngIf="event.logo" [src]="'data:image/jpeg;base64,' + event.logo" alt="Logo" />
+  
+      </div>
+    <div class="event-card-body">
+      <h3>{{ event.name }}</h3>
+      <p><strong>Date:</strong> {{ event.date }}</p>
+      <p><strong>Time:</strong> {{ event.time }}</p>
+      <p><strong>Venue:</strong> {{ event.venue }}</p>
+      <p><strong>Description:</strong> {{ event.description }}</p>
+      <p><strong>Faculty Coordinator:</strong> {{ event.facultyCoordinator }}</p>
+      <p><strong>Total Registrations:</strong> {{ event.totalRegistrations }}</p>
+      <div class="event-images">
+        
+        <img *ngIf="event.eventImages" [src]="'data:image/jpeg;base64,' + event.eventImages" alt="Event Image" width="200" height="200"/>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <p>event-completed works!</p> -->
+
+  <div class="events-container">
+    <div class="row">
+      <div class="col" *ngFor="let event of completedEvents">
+        <div class="event-card">
+          <!-- <div><mat-icon>edit</mat-icon></div> -->
+          <div class="event-card-footer">
+              <!-- <button mat-icon-button (click)="onEditEvent(event)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button>
+                <mat-icon>delete</mat-icon>
+              </button> -->
+              <div class="button-container">
+                <button mat-icon-button class="left-button" (click)="onEditEvent(event)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button class="right-button" (click)="onDeleteEvent(event.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          <div class="event-card-header">
+            <img *ngIf="event.logo" [src]="'data:image/jpeg;base64,' + event.logo" alt="Logo" class="event-logo"/>
+          </div>
+          
+          <div class="event-card-body">
+            <h3>{{ event.name }}</h3>
+            <p><strong>Date:</strong> {{ event.date }}</p>
+            <p><strong>Time:</strong> {{ event.time }}</p>
+            <p><strong>Venue:</strong> {{ event.venue }}</p>
+            <p><strong>Description:</strong> {{ event.description }}</p>
+            <p><strong>Faculty Coordinator:</strong> {{ event.facultyCoordinator }}</p>
+            <p><strong>Total Registrations:</strong> {{ event.totalRegistrations }}</p>
+            <div class="event-images">
+              <img *ngIf="event.eventImages" [src]="'data:image/jpeg;base64,' + event.eventImages" alt="Event Image" class="event-image"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
