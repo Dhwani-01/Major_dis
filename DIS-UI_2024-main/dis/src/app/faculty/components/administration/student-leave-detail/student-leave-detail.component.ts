@@ -17,23 +17,24 @@ export class StudentLeaveDetailComponent{
       this.leaveService.putLeaveStatusByLeaveId(leaveId,"ACCEPTED").subscribe({
         next:(res)=>{
           console.log(res)
-          
         },
         complete:()=>{
           this.toastService.success("Status Updated Successfully")
         }
       })
+      this.dialogRef.close();
     }
 
      onReject(leaveId:any):void{
        this.leaveService.putLeaveStatusByLeaveId(leaveId,"REJECTED").subscribe({
         next:(res)=>{
-          console.log(res)
+          console.log(res) 
         },
         complete:()=>{
           this.toastService.success("Status Updated Successfully")
         }
       })
+      this.dialogRef.close();
     }
     closeDialog(){
       this.dialogRef.close();

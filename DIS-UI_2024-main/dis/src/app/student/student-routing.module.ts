@@ -154,6 +154,7 @@ import { QuestionListComponent } from './components/placement/question-list/ques
 import { TopicListComponent } from './components/placement/topic-list/topic-list.component';
 import { CardPageComponent } from './components/placement/card-page/card-page.component';
 import { LeaveComponent } from './components/leave/leave.component';
+import { MoodleComponent } from '../components/moodle/moodle.component';
 // import { FacultyPageComponent } from './components/faculty-page/faculty-page.component';
 // import { FacultiesComponent } from './components/faculties/faculties.component';
 // import { StaffComponent } from './components/staff/staff.component';
@@ -241,6 +242,10 @@ const routes: Routes = [
       {
         path: 'placement',
         component: CardPageComponent,
+      },
+      {
+        path: 'moodle',
+        component:MoodleComponent,
       },
       {
         path: 'pyq',

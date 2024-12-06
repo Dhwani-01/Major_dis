@@ -16,10 +16,10 @@ export class LeaveFormComponent implements OnInit{
   leaveForm : FormGroup
   username:any
   leaves: any=[]
-  pdfPreviewUrl: string | ArrayBuffer | null = null; // For PDF preview
-  fileName: string = ''; // For storing the uploaded file name
-  selectedFile: any ;
-  formData = new FormData();
+  // pdfPreviewUrl: string | ArrayBuffer | null = null; // For PDF preview
+  // fileName: string = ''; // For storing the uploaded file name
+  // selectedFile: any ;
+  // formData = new FormData();
 
 constructor(private dialog:MatDialog,private dialogRef:MatDialogRef<LeaveFormComponent>,private leaveService:StudentLeaveService,private fb:FormBuilder,private toastService:HotToastService,@Inject(MAT_DIALOG_DATA) public data: any,private spinnerService:SpinnerService){
   this.leaveForm = this.fb.group({
@@ -34,31 +34,31 @@ ngOnInit(): void {
     
 }
   addLeave(){
-    this.formData = new FormData();
+    // let formData = new FormData();
     this.username = sessionStorage.getItem('username')
     if (this.leaveForm.valid) {
-      // let formData = {
-      //   'subject': this.leaveForm.get('subject')?.value,
-      //   'startDate':this.leaveForm.get('startDate')?.value,
-      //   'endDate':this.leaveForm.get('endDate')?.value,
-      //   'description':this.leaveForm.get('description')?.value,
-      //   'studentId':this.username,
-      // };
+      let formData = {
+        'subject': this.leaveForm.get('subject')?.value,
+        'startDate':this.leaveForm.get('startDate')?.value,
+        'endDate':this.leaveForm.get('endDate')?.value,
+        'description':this.leaveForm.get('description')?.value,
+        'studentId':this.username,
+      };
       
-        this.formData.append('leaveData', JSON.stringify({
-          subject: this.leaveForm.get('subject')?.value,
-          startDate: this.leaveForm.get('startDate')?.value,
-          endDate: this.leaveForm.get('endDate')?.value,
-          description: this.leaveForm.get('description')?.value,
-          studentId: this.username,
-          // file:this.selectedFile
-        }));
+        // this.formData.append('leaveData', JSON.stringify({
+        //   subject: this.leaveForm.get('subject')?.value,
+        //   startDate: this.leaveForm.get('startDate')?.value,
+        //   endDate: this.leaveForm.get('endDate')?.value,
+        //   description: this.leaveForm.get('description')?.value,
+        //   studentId: this.username,
+        //   // file:this.selectedFile
+        // }));
 
 
-       console.log(this.formData.get('leaveData'))
-        console.log(this.selectedFile)
+      //  console.log(this.formData.get('leaveData'))
+        // console.log(this.selectedFile)
      
-      this.leaveService.addLeave(this.formData.get('leaveData')).subscribe({
+      this.leaveService.addLeave(formData).subscribe({
         next:(res)=>{
             console.log(res);
           },

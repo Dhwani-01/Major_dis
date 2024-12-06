@@ -24,6 +24,7 @@ export class StudentLeaveService {
     }
     public addLeave(data:any):Observable<any>{
       this.spinnerService.addSpinner();
+      console.log(data)
       const headers = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
       return this.http.post<any>(this.serviceUrls.addLeave,data,{headers:headers});
     }

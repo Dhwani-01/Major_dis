@@ -32,6 +32,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UploadCsvDialogComponent } from './components/admin/upload-csv-dialog/upload-csv-dialog.component';
+import { MoodleComponent } from './components/moodle/moodle.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { UploadCsvDialogComponent } from './components/admin/upload-csv-dialog/u
     ContactComponent,
     ProfileComponent,
     UploadCsvDialogComponent,
+    MoodleComponent,
     
     
     // FooterComponent,
