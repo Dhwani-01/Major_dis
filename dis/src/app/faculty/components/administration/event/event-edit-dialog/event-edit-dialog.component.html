@@ -1,82 +1,103 @@
-<!-- <p>event-edit-dialog works!</p> -->
-<!-- <p>event-edit-dialog works!</p>
-<p>event-dialog works!</p> -->
 <div class="event-form">
-    <h2>Create Event</h2>
-    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="d-flex flex-column py-2">
-      <div style="margin-bottom: 5px; color: black; font-weight: bold;">Event Details</div>
-      
-      <!-- <mat-form-field appearance="outline">
-        <mat-label>Event Name:</mat-label>
-        <input matInput placeholder="Enter event name" formControlName="name" type="text" />
-      </mat-form-field> -->
-  
-      <mat-form-field appearance="outline">
-        <mat-label>Date:</mat-label>
-        <input matInput formControlName="date" type="date" />
-      </mat-form-field>
-  
-      <!-- <mat-form-field appearance="outline">
-        <mat-label>Time:</mat-label>
-        <input matInput formControlName="time" type="time" />
-      </mat-form-field> -->
-  
-      <!-- <mat-form-field appearance="outline">
-        <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker2" formControlName="date"/>
-        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field> -->
-  
-      <!-- Updated Time Field with ngx-mat-timepicker -->
-      <mat-form-field appearance="outline">
-        <mat-label>Time</mat-label>
-        <input matInput [ngxMatTimepicker]="pickert" formControlName="time" />
-        <ngx-mat-timepicker-toggle matSuffix [for]="pickert"></ngx-mat-timepicker-toggle>
-        <ngx-mat-timepicker #pickert></ngx-mat-timepicker>
-      </mat-form-field>
+  <h2 *ngIf="status === 'upcoming'">Edit Upcoming Event</h2>
+  <h2 *ngIf="status === 'ongoing'">Ongoing Event Confirmation</h2>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Venue:</mat-label>
-        <input matInput placeholder="Enter event venue" formControlName="venue" type="text" />
-      </mat-form-field>
+  <form [formGroup]="eventForm"  class="d-flex flex-column py-2">
+    <div style="margin-bottom: 5px; color: black; font-weight: bold;">Event Details</div>
+
+    <!-- Editable fields for Upcoming Events -->
+    <!-- <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Date:</mat-label>
+      <input matInput formControlName="date" type="date" />
+    </mat-form-field> -->
+
+    <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Event Name:</mat-label>
+      <input matInput placeholder="Enter event name" formControlName="name" type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Date:</mat-label>
+      <!-- <input matInput formControlName="date" type="date" /> -->
+      <input matInput [matDatepicker]="picker" formControlName="date" />
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Time</mat-label>
+      <input matInput [ngxMatTimepicker]="pickert" formControlName="time" />
+      <ngx-mat-timepicker-toggle matSuffix [for]="pickert"></ngx-mat-timepicker-toggle>
+      <ngx-mat-timepicker #pickert></ngx-mat-timepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Venue:</mat-label>
+      <input matInput placeholder="Enter event venue" formControlName="venue" type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Description:</mat-label>
+      <textarea matInput placeholder="Enter event description" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Faculty Coordinator:</mat-label>
+      <input matInput placeholder="Enter faculty coordinator name" formControlName="facultyCoordinator" type="text" />
+    </mat-form-field> -->
+
+    <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>FacultyCoordinator:</mat-label>
+      <mat-select formControlName="facultyCoordinator">
+        <mat-option *ngFor="let faculty of facultyList" [value]="faculty.userName">{{ faculty.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Total Registrations Field (Optional for Future Use) -->
+    <mat-form-field appearance="outline" *ngIf="status === 'upcoming'">
+      <mat-label>Total Registrations:</mat-label>
+      <input matInput placeholder="Enter total registrations" formControlName="totalRegistrations" type="number" />
+    </mat-form-field>
+
+</form>
+    <!-- Confirm Ongoing Event -->
+    <ng-container *ngIf="status === 'ongoing'">
+      <p>Would you like to confirm this event as ongoing?</p>
+      <button mat-raised-button color="primary" (click)="confirmOngoing(data)">Confirm Ongoing</button>
+    </ng-container>
+
+    <!-- Upload Fields for Completed Events -->
+    <form *ngIf="status==='completed'" [formGroup]="updateOngoingEventStatus" class="d-flex flex-column py-2">
+     
+        <!-- <ng-container *ngIf="updateUpcomingLectureStatus.controls['status'].value.toLowerCase() === 'completed'"> -->
+      <mat-label>Upload Attendance</mat-label>
+      <input style="padding: 20px;"  (change)="selectAttendanceFileInput($event)" type="file" formControlName="attendanceFile" />
+    
+      <mat-label>Upload Photographs</mat-label>
+      <input style="padding: 20px;" (change)="selectPhotosFileInput($event)" type="file" formControlName="photos" />
+  <!-- </ng-container> -->
   
-      <mat-form-field appearance="outline">
-        <mat-label>Description:</mat-label>
-        <textarea matInput placeholder="Enter event description" formControlName="description"></textarea>
-      </mat-form-field>
-  
-      <mat-form-field appearance="outline">
-        <mat-label>Faculty Coordinator:</mat-label>
-        <input matInput placeholder="Enter faculty coordinator name" formControlName="facultyCoordinator" type="text" />
-      </mat-form-field>
-  
-      <mat-form-field appearance="outline">
-        <mat-label>Total Registrations:</mat-label>
-        <input matInput placeholder="Enter total registrations" formControlName="totalRegistrations" type="number" />
-      </mat-form-field>
-  
-      <!-- Logo Upload -->
-      <div>
-        <label for="logo">Event Logo:</label>
-        <input id="logo" type="file" (change)="onLogoChange($event)" accept="image/*" />
-        <div *ngIf="logoPreview">
-          <p>Logo Preview:</p>
-          <img [src]="logoPreview" alt="Logo Preview" width="100" />
-        </div>
-      </div>
-  
-      <!-- Event Images Upload -->
-      <!-- <div>
-        <label for="eventImages">Event Images:</label>
-        <input id="eventImages" type="file" (change)="onImageChange($event)" accept="image/*" />
-        <div *ngIf="imagePreview">
-          <p>Image Preview:</p>
-          <img [src]="imagePreview" alt="Image Preview" width="100" />
-        </div>
-      </div> -->
-  
-      <button mat-raised-button type="submit" [disabled]="eventForm.invalid">Submit Event</button>
     </form>
-  </div>
-  
+    <!-- <div *ngIf="status === 'completed'">
+      <mat-label>Upload Attendance</mat-label>
+      <input style="padding: 20px;" (change)="selectAttendanceFileInput($event)" type="file" formControlName="attendanceFile" />
+    
+      <mat-label>Upload Photographs</mat-label>
+      <input style="padding: 20px;" (change)="selectPhotosFileInput($event)" type="file" formControlName="photos" />
+    </div> -->
+
+    <!-- Submit and Close Buttons -->
+    <!-- <button mat-raised-button type="submit" [disabled]="eventForm.invalid && status !== 'ongoing'">
+      Submit Event
+    </button> -->
+
+    <button mat-raised-button (click)="onSubmit()" *ngIf="status === 'upcoming'" [disabled]="eventForm.invalid">
+  Submit Event
+</button>
+<button mat-raised-button (click)="onStatusUpdate()" *ngIf="status === 'completed'" [disabled]="updateOngoingEventStatus.invalid">
+  Submit
+</button>
+
+    <button mat-raised-button (click)="onCancel()">Close</button>
+  <!-- </form> -->
+</div>

@@ -27,42 +27,54 @@ export class EventCompletedComponent implements OnInit{
   completedEvents: any[] = [];
     ongoingEvents: any[] = [];
     username: string = '';
+    status: string = 'completed';
     // username = 'ntiwari'; // Replace with dynamic username
     // loginId = 'facultyLoginId'; // Replace with dynamic login ID
 
-    constructor(private eventService: EventformService,private authService: AuthService,private dialog: MatDialog) { }
+    constructor(private eventformService: EventformService,private authService: AuthService,private dialog: MatDialog) { }
 
     ngOnInit(): void {
         this.username = this.authService.getUsername()|| '';
-        this.fetchCompletedEvents();
-        this.fetchOngoingEvents();
+        this.getEventsByStatus(this.status)
+        // this.fetchCompletedEvents();
+        // this.fetchOngoingEvents();
     }
     
-  fetchCompletedEvents() {
-    this.eventService.getCompletedEvents(this.username).subscribe((data) => {
-      console.log("data",data);
-        this.completedEvents = data;
-    });
-}
+//   fetchCompletedEvents() {
+//     this.eventformService.getCompletedEvents(this.username).subscribe((data) => {
+//       console.log("data",data);
+//         this.completedEvents = data;
+//     });
+// }
 
-fetchOngoingEvents() {
-  this.eventService.getOngoingEvents(this.username).subscribe((data) => {
-      this.ongoingEvents = data;
+getEventsByStatus(status: string): void {
+  this.eventformService.getEventsByStatus(status,this.username).subscribe((data) => {
+      this.completedEvents = data;
+      console.log(data);
   });
 }
+
+// fetchOngoingEvents() {
+//   this.eventService.getOngoingEvents(this.username).subscribe((data) => {
+//       this.ongoingEvents = data;
+//   });
+// }
 
 onEditEvent(event: any) {
   console.log('Edit event:', event);
   const dialogRef = this.dialog.open(EventEditDialogComponent, {
-    data: event
+    data: {
+      status: 'completed',
+    },
+    disableClose: true,
   });
 
   dialogRef.afterClosed().subscribe((result: any) => {
     if (result) {
       console.log('Updated event:', result);
       // Optionally refresh the event list after editing
-      this.fetchCompletedEvents();
-      this.fetchOngoingEvents();
+      // this.fetchCompletedEvents();
+      // this.fetchOngoingEvents();
     }
   });
 }
@@ -70,10 +82,10 @@ onEditEvent(event: any) {
 onDeleteEvent(eventId: number) {
   console.log(eventId);
   if (confirm('Are you sure you want to delete this event?')) {
-    this.eventService.deleteEvent(eventId).subscribe({
+    this.eventformService.deleteEvent(eventId).subscribe({
       next: () => {
         alert('Event deleted successfully!');
-        this.fetchCompletedEvents(); // Refresh the events list
+        // this.fetchCompletedEvents(); // Refresh the events list
       },
       error: (err) => {
         console.error('Error deleting event:', err);

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./actions-cell-renderer.component.scss']
 })
 export class ActionsCellRendererComponent {
-
+  
 }
+

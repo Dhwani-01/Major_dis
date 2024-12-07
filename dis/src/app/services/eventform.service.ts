@@ -74,10 +74,10 @@ export class EventformService {
   // }
 
   createEvent(eventData: FormData): Observable<any> {
-    console.log("csz FormData content:");
-    eventData.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
-    });
+    // console.log("csz FormData content:");
+    // eventData.forEach((value, key) => {
+    //     console.log(`${key}: ${value}`);
+    // });
     return this.http.post(`${this.baseUrl}`, eventData);
 }
 
@@ -108,6 +108,14 @@ export class EventformService {
   deleteEvent(eventId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${eventId}`);
   }
+  getEventsByStatus(status: string, username:string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/status/${status}`, { params: { username } });
+  }
+  updateEventStatus(eventId: number, status: string): Observable<any> {
+    const url = `${this.baseUrl}/${eventId}/status`;
+    return this.http.put(url, null, { params: { status }, responseType: 'text' });
+  }
 }
+
 
 
