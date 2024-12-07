@@ -57,6 +57,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { serviceUrls } from '../shared/constants/serviceUrls';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -114,6 +115,16 @@ export class EventformService {
   updateEventStatus(eventId: number, status: string): Observable<any> {
     const url = `${this.baseUrl}/${eventId}/status`;
     return this.http.put(url, null, { params: { status }, responseType: 'text' });
+  }
+
+  public uploadFiles(eventId: number, attendanceFile: File, photoFile: File) {
+    const formData = new FormData();
+    formData.append('attendance', attendanceFile);
+    formData.append('photo', photoFile);
+
+    return lastValueFrom(
+      this.http.put<any>(`${this.baseUrl}/uploadFiles/${eventId}`, formData)
+    );
   }
 }
 

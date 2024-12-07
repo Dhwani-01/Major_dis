@@ -70,6 +70,22 @@ onEditEvent(event: any) {
   });
 }
 
+onStatusCompleted(data:any) {
+
+  console.log('on status completed clicked');
+  // alert(rowData);
+  const dialogRef = this.dialog.open(EventEditDialogComponent, {
+    data: {
+      // type: 'status',
+       data : data,
+      status:'completed'
+    },
+    disableClose: true,
+  });
+  dialogRef.afterClosed().subscribe(() => this.getEventsByStatus('ongoing'));
+
+}
+
 onDeleteEvent(eventId: number) {
   console.log(eventId);
   if (confirm('Are you sure you want to delete this event?')) {

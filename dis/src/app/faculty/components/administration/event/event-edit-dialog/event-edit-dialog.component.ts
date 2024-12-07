@@ -431,20 +431,31 @@ export class EventEditDialogComponent implements OnInit {
       },
     });
   }
+
   async onStatusUpdate(){
     // console.log(this..value.status);
    
-    console.log(this.attendanceSheet);
-    console.log(this.photosSheet);
+    console.log("filecsda",this.attendanceSheet);
+    console.log("vjdcds photo",this.photosSheet);
     // let status=this.updateUpcomingLectureStatus.value.status;
     const formData= new FormData();
    
-      formData.append('file',this.attendanceSheet);
-    
+    formData.append('file',this.attendanceSheet);
+    formData.append('photofile',this.photosSheet);
+
     let response3: any = { message: '' };
     try {
      // response3 = await this.eventFormService.updateExpertLectureByStatus(status,[this.formData.expertLectureId],formData); 
-    
+      response3 = await this.eventFormService.uploadFiles(
+      this.data.data.id,
+      this.attendanceSheet!,
+      this.photosSheet!
+    );
+    if (response3 && response3.message) {
+      this.toastService.success(response3.message); // Display success message
+  } else {
+      this.toastService.error('Error uploading files.');
+  }
        
     } catch (error) {
       console.log(error)
@@ -458,5 +469,6 @@ export class EventEditDialogComponent implements OnInit {
     this.dialogRef.close(status);
 
   }
+
 
 }
