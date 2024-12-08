@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-common-dashboard',
@@ -20,7 +21,7 @@ export class CommonDashboardComponent {
     ],
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   handleDateClick(arg: any) {
     alert('date click! ' + arg.dateStr);
@@ -47,10 +48,17 @@ export class CommonDashboardComponent {
   }
 
   // Function to handle "View All Events" button click
+  // viewAllEvents(): void {
+  //   console.log('View All Events button clicked!');
+  //   // Implement the logic to show all events, possibly by navigating to another page or loading more events
+  //   // For example, you might use a router to navigate to an events page:
+  //   // this.router.navigate(['/events']);
+  // }
   viewAllEvents(): void {
     console.log('View All Events button clicked!');
     // Implement the logic to show all events, possibly by navigating to another page or loading more events
     // For example, you might use a router to navigate to an events page:
     // this.router.navigate(['/events']);
+    this.router.navigate(['/head/event-fetch']);
   }
 }

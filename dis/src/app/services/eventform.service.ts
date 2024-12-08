@@ -112,6 +112,9 @@ export class EventformService {
   getEventsByStatus(status: string, username:string): Observable<any> {
     return this.http.get(`${this.baseUrl}/status/${status}`, { params: { username } });
   }
+  getEventsByStatusDashboard(status: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/status/dashboard/${status}`);
+  }
   updateEventStatus(eventId: number, status: string): Observable<any> {
     const url = `${this.baseUrl}/${eventId}/status`;
     return this.http.put(url, null, { params: { status }, responseType: 'text' });

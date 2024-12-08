@@ -35,6 +35,7 @@ import { EventOngoingComponent } from './components/administration/event/event-o
 import { EventUpcomingComponent } from './components/administration/event/event-upcoming/event-upcoming.component';
 import { EventFetchComponent } from './components/administration/event/event-fetch/event-fetch.component';
 import { EventDetailComponent } from './components/administration/event/event-detail/event-detail.component';
+import { EventEditDialogComponent } from './components/administration/event/event-edit-dialog/event-edit-dialog.component';
 import { UploadsPyqComponent } from './components/service/uploads-pyq/uploads-pyq.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -42,7 +43,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { StudentLeaveAplcationComponentComponent } from './components/administration/student-leave-application-component/student-leave-application-component.component';
 import { StudentLeaveDetailComponent } from './components/administration/student-leave-detail/student-leave-detail.component';
-import { EventEditDialogComponent } from './components/administration/event/event-edit-dialog/event-edit-dialog.component';
+
 
 @NgModule({
   declarations: [

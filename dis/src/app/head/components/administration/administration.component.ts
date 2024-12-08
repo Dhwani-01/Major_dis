@@ -11,13 +11,13 @@ export class AdministrationComponent {
   navItemList: NavItem[] = [
     // { code: 'myTasks', value: 'My Task' },
     { code: 'expertLecture', value: 'Expert Lecture' },
-    { code: 'magazine', value: 'Magazine' },
+    { code: 'event', value: 'Event' },
     { code: 'industryVisit', value: 'Industry Visit' },
     { code: 'library', value: 'Library' },
     { code: 'MEScholarship', value: 'ME Scholarship' },
     { code: 'courseScheme', value: 'Course Scheme' },
     { code: 'systemAdmin', value: 'System Admin' },
     { code: 'projectGuide', value: 'Project Guide' },
-    { code: 'event', value: 'Event' },
+    
   ];
 }

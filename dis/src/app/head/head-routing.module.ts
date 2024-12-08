@@ -26,10 +26,17 @@ import { IndustryVisitCompletedComponent } from './components/administration/ind
 // import { FacultiesComponent } from './components/faculty-page/faculties/faculties.component';
 // import { StaffComponent } from './components/faculty-page/staff/staff.component';
 
-import { EventCompletedComponent } from './components/administration/event/event-completed/event-completed.component';
+// import { EventCompletedComponent } from './components/administration/event/event-completed/event-completed.component';
+// import { EventComponent } from './components/administration/event/event.component';
+// import { EventOngoingComponent } from './components/administration/event/event-ongoing/event-ongoing.component';
+// import { EventUpcomingComponent } from './components/administration/event/event-upcoming/event-upcoming.component';
+
 import { EventComponent } from './components/administration/event/event.component';
-import { EventOngoingComponent } from './components/administration/event/event-ongoing/event-ongoing.component';
+import { EventCompletedComponent } from './components/administration/event/event-completed/event-completed.component';
 import { EventUpcomingComponent } from './components/administration/event/event-upcoming/event-upcoming.component';
+import { EventOngoingComponent } from './components/administration/event/event-ongoing/event-ongoing.component';
+import { EventFetchComponent } from './components/administration/event/event-fetch/event-fetch.component';
+import { EventDetailComponent } from './components/administration/event/event-detail/event-detail.component';
 
 const routes: Routes = [
   {
@@ -39,6 +46,14 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardComponent,
+      },
+      {
+        path: 'event-fetch',
+        component: EventFetchComponent,
+      },
+      {
+        path: 'event-detail',
+        component: EventDetailComponent,
       },
       {
         path: 'admin',

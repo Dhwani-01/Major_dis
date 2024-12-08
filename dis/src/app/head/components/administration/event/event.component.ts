@@ -1,7 +1,9 @@
+import { Component } from '@angular/core';
 
-import { Component, ViewChild } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavItem } from 'src/app/head/constants';
+
 import { EventDialogComponent } from './event-dialog/event-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabNav, MatTabNavPanel } from '@angular/material/tabs';
@@ -12,6 +14,7 @@ import { MatTabNav, MatTabNavPanel } from '@angular/material/tabs';
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent {
+  
   @ViewChild( 'tabPanel' ) tabPanel?: MatTabNavPanel;
   //selectedTab: string = 'expert-lecture-pending';
   navItemList: NavItem[] = [
@@ -47,4 +50,5 @@ export class EventComponent {
     });
     
   }
+
 }

@@ -1,3 +1,4 @@
+<!-- <p>event-dialog works!</p> -->
 <div class="event-form">
     <h2>Create Event</h2>
     <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="d-flex flex-column py-2">
@@ -10,14 +11,32 @@
   
       <mat-form-field appearance="outline">
         <mat-label>Date:</mat-label>
-        <input matInput formControlName="date" type="date" />
+        <!-- <input matInput formControlName="date" type="date" /> -->
+        <input matInput [matDatepicker]="picker" formControlName="date" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
   
-      <mat-form-field appearance="outline">
+      <!-- <mat-form-field appearance="outline">
         <mat-label>Time:</mat-label>
         <input matInput formControlName="time" type="time" />
-      </mat-form-field>
+      </mat-form-field> -->
   
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="date"/>
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field> -->
+  
+      <!-- Updated Time Field with ngx-mat-timepicker -->
+      <mat-form-field appearance="outline">
+        <mat-label>Time</mat-label>
+        <input matInput [ngxMatTimepicker]="pickert" formControlName="time" />
+        <ngx-mat-timepicker-toggle matSuffix [for]="pickert"></ngx-mat-timepicker-toggle>
+        <ngx-mat-timepicker #pickert></ngx-mat-timepicker>
+      </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label>Venue:</mat-label>
         <input matInput placeholder="Enter event venue" formControlName="venue" type="text" />
@@ -28,9 +47,15 @@
         <textarea matInput placeholder="Enter event description" formControlName="description"></textarea>
       </mat-form-field>
   
-      <mat-form-field appearance="outline">
+      <!-- <mat-form-field appearance="outline">
         <mat-label>Faculty Coordinator:</mat-label>
         <input matInput placeholder="Enter faculty coordinator name" formControlName="facultyCoordinator" type="text" />
+      </mat-form-field> -->
+      <mat-form-field appearance="outline">
+        <mat-label>FacultyCoordinator:</mat-label>
+        <mat-select formControlName="facultyCoordinator">
+          <mat-option *ngFor="let faculty of facultyList" [value]="faculty.userName">{{ faculty.name }}</mat-option>
+        </mat-select>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
@@ -49,16 +74,17 @@
       </div>
   
       <!-- Event Images Upload -->
-      <div>
+      <!-- <div>
         <label for="eventImages">Event Images:</label>
         <input id="eventImages" type="file" (change)="onImageChange($event)" accept="image/*" />
         <div *ngIf="imagePreview">
           <p>Image Preview:</p>
           <img [src]="imagePreview" alt="Image Preview" width="100" />
         </div>
-      </div>
+      </div> -->
   
       <button mat-raised-button type="submit" [disabled]="eventForm.invalid">Submit Event</button>
+      <button mat-raised-button (click)="onCancel()" >Close</button>
     </form>
   </div>
   

@@ -75,6 +75,22 @@ export class EventFetchComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadEventDetails();
+    this.fetchEventsByStatus('completed', 'completedEvents');
+    this.fetchEventsByStatus('ongoing', 'ongoingEvents');
+    this.fetchEventsByStatus('upcoming', 'upcomingEvents');
+  }
+
+  fetchEventsByStatus(status: string, property: string): void {
+    this.eventformService.getEventsByStatusDashboard(status).subscribe(
+      (data) => {
+        // this[property] = data;
+        (this as any)[property] = data
+        console.log(`${status} Events:`, data);
+      },
+      (error) => {
+        console.error(`Error fetching ${status} events:`, error);
+      }
+    );
   }
 
   // Method to load event details from the backend
@@ -83,7 +99,7 @@ export class EventFetchComponent implements OnInit {
       (data) => {
         this.eventDetails = data;
         console.log('Event Details:', this.eventDetails);
-        this.categorizeEvents();
+       // this.categorizeEvents();
       },
       (error) => {
         console.error('Error fetching event details:', error);
